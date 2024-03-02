@@ -155,6 +155,8 @@ def main():
     return store_loadout
 
   # artifact collection and ordering
+  # Use a closure as memory
+
   def check_inventory(backpack = inventory_loadout, damage = 0) -> dict:
     print_main_headings("# Did you collect all necessary artifacts to defeat the dragon?")
     print(" # Current Inventory: ") 
@@ -177,8 +179,6 @@ def main():
       print_main_headings("You won the fight")
       return True
     else:
-      # This has a return value of inventory_loadout but is not stored in memory so we use a closure as state management.
-      # This is called 'technical debt' because I'm building myself into a corner. lol
       print(f" You have not collected all the artifacts and the dragon has taken {'s' if damage > 1 else ' '}/3{damage} of your life.")
       print(f" You cannot enter The Lounge until you have all the artifacts ")
       damage += 1
