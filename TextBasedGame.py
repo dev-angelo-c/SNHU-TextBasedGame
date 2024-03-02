@@ -93,14 +93,12 @@ def main():
     return inventory_loadout
 
   # visuals
-  def print_main_headings(text) -> None:
+  def print_main_headings(text, char="#") -> None:
     configured_width = configuration['viz']['width']
     print("")
-    print("#" * configured_width)
-    
-    print(f"{text:-^{configured_width}}")
-    
-    print("#" * configured_width)
+    print(char * configured_width)    
+    print(f"{text:-^{configured_width}}")    
+    print(char * configured_width)
 
     time.sleep(configuration['sleep']['heading'])
 
